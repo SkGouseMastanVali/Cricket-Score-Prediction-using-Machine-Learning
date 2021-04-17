@@ -1,0 +1,26 @@
+PCA(Priciple Component Analaysis) is not a machine learning algorithm, its techniqe used to reduce the dimention of the dataset(columns).
+
+
+matplotlib---> to plot the diagrams
+numpy----->for creating arrays
+pandas---->to read the dataset
+
+
+dataset.keys()----->to view all the attribute names
+
+print(dataset['wickets'])----->all data in wickets
+
+df=pd.DataFrame(dataset['total'],columns=dataset['feature_names'])--->target attribute and remaining all attributes
+
+print(df.head(5))---->dataframe top 5 rows
+
+
+standardscalar or minmaxscalar--->transform--->it converted into array
+
+now you can apply PCA technique...
+
+....out of all attribues/dimentions (14), we want to convert in 2 dimentions only by using new vector space(standardscalar)
+
+after PCA,now 569 rows and 14 colums convers into 569 rows with 2 columns
+
+now you can apply any algorithm for the acuracy

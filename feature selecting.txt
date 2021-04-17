@@ -1,0 +1,35 @@
+import pandas as pd
+import numpy as np
+data = pd.read_csv("D://Blogs//train.csv")
+X = data.iloc[:,0:20]  #independent columns
+y = data.iloc[:,-1]    #target column i.e price range
+from sklearn.ensemble import ExtraTreesClassifier
+import matplotlib.pyplot as plt
+model = ExtraTreesClassifier()
+model.fit(X,y)
+print(model.feature_importances_) #use inbuilt class feature_importances of tree based classifiers
+#plot graph of feature importances for better visualization
+feat_importances = pd.Series(model.feature_importances_, index=X.columns)
+feat_importances.nlargest(10).plot(kind='barh')
+plt.show()
+
+
+
+
+
+# plot feature importance using built-in function
+from numpy import loadtxt
+from xgboost import XGBClassifier
+from xgboost import plot_importance
+from matplotlib import pyplot
+# load data
+dataset = loadtxt('pima-indians-diabetes.csv', delimiter=",")
+# split data into X and y
+X = dataset[:,0:8]
+y = dataset[:,8]
+# fit model no training data
+model = XGBClassifier()
+model.fit(X, y)
+# plot feature importance
+plot_importance(model)
+pyplot.show()
